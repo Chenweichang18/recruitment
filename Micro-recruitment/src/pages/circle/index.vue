@@ -63,7 +63,7 @@
                   <p>{{item.text}}</p>
                   <!-- get技能 -->
                   <div style="position:absolute;right:25rpx;bottom:20rpx;" @click="item.get=!item.get">
-                    <img :class="item.get?'animated rubberBand':''" :src="item.get?'/static/images/bixin-active.png':'/static/images/bixin.png'" style="width:50rpx;height:50rpx;" alt="" @click="getTM(index)">
+                    <img :class="item.get?'animated rubberBand':''" :src="item.get?'/static/images/bixin-active.png':'/static/images/bixin.png'" style="width:50rpx;height:50rpx;" alt="">
                     <div :class="item.get?'fontRed':''" style="display:inline-block;">Get</div>
                   </div>
               </div>
@@ -71,6 +71,26 @@
           </swiper-item>
         </swiper>
       </div>
+    </div>
+    <!-- 下方区域发布按钮 -->
+    <div class="allBtn">
+      <div :class="ball?'xianshi animated fadeInUp':'xiaoshi'">
+        <div class="fabuBtn" @click="boxOpen1=true">动态</div>
+        <div class="fabuBtn" @click="boxOpen2=true">面经</div>
+      </div>
+      <div :class="ball?'fabu animated jello':'fabu'">
+        <img src="/static/images/ball.png" style="width:140rpx;height:140rpx;margin-top:-2rpx;" alt="" @click="fabu">
+      </div>
+    </div>
+    <!-- 发布动态框 -->
+    <div :class="boxOpen1?'textBox1 animated fadeInUp':'xiaoshi'">
+      <div style="width:80%;border-bottom:2rpx solid gray;margin:10rpx auto;display:flex;justify-content:center;">动态</div>
+      <textarea name="" id="" cols="30" rows="10" style="border:2rpx solid gray;width:90%;margin:10rpx auto;"></textarea>
+      <div style="margin:40rpx auto;width:320rpx;">
+        <div style="display:flex;justify-content:center;align-items:center;float:left;background:gray;width:150rpx;height:70rpx;color:white;border-radius:20rpx;" @click="boxOpen1=false">取消</div>
+        <div style="display:flex;justify-content:center;align-items:center;float:right;background:#6495ED;width:150rpx;height:70rpx;color:white;border-radius:20rpx;">发布</div>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -87,9 +107,15 @@ export default {
       pic:[{'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F33500000%2FEmma-Watson-emma-watson-33575961-1920-1200.jpg&refer=http%3A%2F%2Fimages6.fanpop.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613460178&t=0c0f0e71782e6ca08f58b53ceaa75961'},
            {'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.ivsky.com%2Fimg%2Fbizhi%2Fpre%2F201401%2F05%2Femma_watson-001.jpg&refer=http%3A%2F%2Fimg.ivsky.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613541770&t=2f397fc81ae3d06e0b2ccbff13955fa7'},
            {'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F9%2F58ec9b08ec2f1.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613460178&t=3642669eba443e8daee370f1be1aa950'}],
+      //动态的三个状态控制
       open1:true,
       open2:false,
       open3:false,
+      //发布气泡状态控制
+      ball:false,
+      //动态、面经状态控制
+      boxOpen1:false,
+      boxOpen2:false,
       listNum:[],
       dongtai:[{user:'黎明',text:'今天面试官把我批了一顿!',zanType:false,caiType:false},
                {user:'刘德华',text:'今天面试官把我批了一顿!',zanType:false,caiType:false},
@@ -157,7 +183,9 @@ export default {
       var node=this.dongtai[index]
       if(node.zanType==false) node.caiType=!node.caiType
       if(node.zanType==true) { node.caiType=!node.caiType; node.zanType=false}
-    }
+    },
+    //发布的方法
+    fabu(){this.ball=!this.ball},
   },
 
   created () {
@@ -181,6 +209,11 @@ img{border-radius: 30rpx;}
 .DT-active{margin-left:30rpx;margin-bottom:20rpx;font-size:36rpx;color:gray;}
 .dynamic .right{width:70%;margin-left:5%;height:460rpx;border-radius: 30rpx;}
 .neirong{padding:20rpx;margin-left:5%;background: #6494ed1c;width:90%;min-height:300rpx;border-radius:30rpx;}
+.xianshi{display: block;}
 .xiaoshi{display:none;}
 .fontRed{color:red;}
+.fabu{width:140rpx;height:137rpx;border-radius:50%;background:#6495ED;margin:0 auto;}
+.allBtn{position:fixed;margin:auto;left:0;right:0;bottom:0rpx;width:260rpx;}
+.fabuBtn{display:inline-block;background:rgba(128, 128, 128, 0.39);color:white;margin-left:13.9rpx;border-radius:20rpx;margin-bottom:20rpx;font-size:36rpx;padding:20rpx;}
+.textBox1{position: absolute;width:60%;height:500rpx;left:20%;top:200rpx;background:#bbdee4;border-radius: 30rpx;}
 </style>
