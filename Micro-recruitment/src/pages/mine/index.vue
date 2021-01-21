@@ -82,6 +82,7 @@ export default {
         if(e.mp.detail.userInfo)
         {
           this.userInfo=e.mp.detail.userInfo;
+          wx.setStorageSync('userInformation',e.mp.detail.userInfo)
         }
       },
     //上传文件方法
@@ -99,6 +100,7 @@ mounted () {
         success:(res)=>{
           console.log(res);
           this.userInfo=res.userInfo;
+          wx.setStorageSync('userInformation',res.userInfo)
         },
         fail:(res)=>{
           console.log(res);
