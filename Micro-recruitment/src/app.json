@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/resume/main",
+    "pages/index/main",
     "pages/mine/main",
     "pages/circle/main",
-    "pages/index/main",
     "pages/identity/main",
     "pages/logs/main",
     "pages/news/main",
