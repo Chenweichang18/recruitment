@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/resume/main",
     "pages/index/main",
+    "pages/resume/main",
     "pages/mine/main",
     "pages/circle/main",
     "pages/identity/main",

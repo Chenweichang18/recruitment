@@ -218,6 +218,79 @@
       </div>
     </div>
 
+    <!-- 项目经验 -->
+    <!-- 弹窗模态遮罩层实现 -->
+    <div v-if="tan5Open" class="zhaozi">
+      <!-- 技能特长弹窗 -->
+      <div class="tan1 animated slideInRight">
+        <!-- 弹窗内上半部分内容，下半部分是两个按钮 -->
+        <div class="xinxi">
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">项目名称</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">担任角色</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">时间段</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx" style="height:400rpx;">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">项目内容</font>
+            <textarea name="" id="" maxlength='200' autofocus style="width:90%;height:350rpx;position:absolute;top:80rpx;left:20rpx;line-height:46rpx;"></textarea>
+          </div>
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">技术栈</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">作品链接</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+        </div>
+        <!-- 保存、取消按钮 -->
+        <div class="btn1">
+          <div class="quxiao" @click="tan5Open=false">取消</div>
+          <div class="baocun">保存</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目经验 -->
+    <!-- 弹窗模态遮罩层实现 -->
+    <div v-if="tan6Open" class="zhaozi">
+      <!-- 技能特长弹窗 -->
+      <div class="tan1 animated slideInRight">
+        <!-- 弹窗内上半部分内容，下半部分是两个按钮 -->
+        <div class="xinxi">
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">公司名称</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">担任职务</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">时间段</font>
+            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+          </div>
+          <div class="tx" style="height:400rpx;">
+            <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">工作内容</font>
+            <textarea name="" id="" maxlength='200' autofocus style="width:90%;height:350rpx;position:absolute;top:80rpx;left:20rpx;line-height:46rpx;"></textarea>
+          </div>
+        </div>
+        <!-- 保存、取消按钮 -->
+        <div class="btn1">
+          <div class="quxiao" @click="tan6Open=false">取消</div>
+          <div class="baocun">保存</div>
+        </div>
+      </div>
+    </div>
+    
+
 
     
     

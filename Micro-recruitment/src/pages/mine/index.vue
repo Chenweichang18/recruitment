@@ -4,7 +4,7 @@
     <div class='login'>
       <div class="loginLeft">
         <font class="loginFont1">{{userInfo.nickName?userInfo.nickName:'未登录'}}</font>
-        <div v-if="userInfo.nickName">
+        <div v-if="userInfo.nickName" @click="goOnline">
           <img src="/static/images/edit.png" style="width:40rpx;height:40rpx;float:left;" alt="">
           <font class="loginFont2">&nbsp;我的在线简历</font>
         </div>
@@ -16,7 +16,7 @@
     </div>
     <!-- 中间层功能模块标签 -->
     <div class="middle">
-      <div style="margin-top:30rpx;">
+      <div style="margin-top:30rpx;" @click="goOnline">
         <img style="width:100rpx;height:100rpx;margin-left:10rpx;" src="../../../static/images/resume.png" alt="">
         <p style="font-size:30rpx;">在线简历</p>
       </div>
@@ -93,6 +93,12 @@ export default {
     handleContact (e) {
         console.log(e.detail.path)
         console.log(e.detail.query)
+    },
+    //跳转到在线简历页面
+    goOnline(){
+      wx.navigateTo({
+        url: '../resume/main'
+      })
     }
   },
 mounted () {

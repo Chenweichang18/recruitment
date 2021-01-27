@@ -21,8 +21,8 @@
       <!-- 内容列表 -->
       <div class="content">
         <!-- 内容区域顶部三个按钮：推荐、附近、筛选 -->
-        <font style="color: green;">推荐</font>
-        <font style="margin-left:20rpx;color:gray;">附近</font>
+        <font style="display:inline-block;" :style="btnType==true?'color: green;':'color:gray;'" @click="tuijian">推荐</font>
+        <font style="display:inline-block;" :style="btnType==false?'margin-left:20rpx;color:green;':'margin-left:20rpx;color:gray;'" @click="fujin">附近</font>
         <div class="shaixuan">筛选</div>
         <!-- 内容区域求职信息展示 -->
         <div class="xinxi">
@@ -52,6 +52,8 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      //推荐、附件按钮状态
+      btnType:true,
       openHistory:false,
       //历史记录数组
       historyList:['测试','测试','测试'],
@@ -97,7 +99,15 @@ export default {
     searchIcon(name){
       this.searchInput=name
       this.search()
-    }
+    },
+    //推荐方法
+    tuijian(){
+      this.btnType=true
+    },
+    //附近方法
+    fujin(){
+      this.btnType=false
+    },
   },
 
   created () {
