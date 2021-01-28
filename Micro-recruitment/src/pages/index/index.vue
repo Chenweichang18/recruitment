@@ -111,7 +111,30 @@ export default {
   },
 
   created () {
+    var that = this
     // let app = getApp()
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          that.$http.get("/login/getopenid",{code:res.code}).then((res)=>{
+            //输出请求数据
+            console.log(res.data)
+          }).catch(err=>{
+            console.log(err.status,err.message)
+          })
+          /* wx.request({
+            url: 'http://localhost:3000/login/getopenid?code='+res.code,
+              success (res) {
+              console.log(res.data)
+            }
+          }) */
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+
   }
 }
 </script>

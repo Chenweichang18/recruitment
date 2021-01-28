@@ -7,7 +7,7 @@ app.use(express.json());
 routes(app);
 //get请求
 app.get('/',(req,res)=>{
-    res.send('Hello World');
+    res.send('欢迎来到对抗路');
 });
 
 //post请求
@@ -30,7 +30,8 @@ app.delete("/:id",(req,res)=>{
 })
 //监听端口
 app.listen(port,()=>{
-    console.log(`Express server listening at http://localhost:${port}`)
+    console.log('本地服务启动，端口号为3000')
+    /* console.log(`Express server listening at http://localhost:${port}`) */
 })
 
 

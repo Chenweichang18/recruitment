@@ -1,9 +1,12 @@
 const express = require("express");
 var route = express.Router();
+var db = require("../db"); //引入数据库封装模块
 
 //get请求
 route.get('/',(req,res)=>{
-    res.send('Hello World');
+    db.query("SELECT * FROM qqm",[],function(results,fields){
+        console.log(results);
+      })
 });
 
 //post请求
