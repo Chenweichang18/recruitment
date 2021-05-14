@@ -7,7 +7,7 @@ app.use(express.json());
 routes(app);
 //get请求
 app.get('/',(req,res)=>{
-    res.send('欢迎来到对抗路');
+    res.send('请求成功');
 });
 
 //post请求

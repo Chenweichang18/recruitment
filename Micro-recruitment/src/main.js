@@ -19,10 +19,10 @@ fly.config.headers = {
 
 // 添加请求拦截器
 fly.interceptors.request.use((request) => {
-  wx.showLoading({
+  /* wx.showLoading({
     title: "加载中",
     mask: true
-  });
+  }); */
 
   return request;
 });
@@ -30,13 +30,13 @@ fly.interceptors.request.use((request) => {
 // 添加响应拦截器
 fly.interceptors.response.use(
   (response) => {
-    wx.hideLoading();
+    /* wx.hideLoading(); */
     return response;// 请求成功之后将返回值返回
   },
   (err) => {
     // 请求出错，根据返回状态码判断出错原因
     console.log(err);
-    wx.hideLoading();
+    /* wx.hideLoading(); */
     if (err) {
       return "请求失败";
     };

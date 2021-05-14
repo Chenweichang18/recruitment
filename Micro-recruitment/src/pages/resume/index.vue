@@ -79,7 +79,7 @@
           <!-- 姓名 -->
           <div class="xm">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">姓名</font>
-            <input type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;" v-model="personal.name">
+            <input type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;" v-model="tableData[0].name">
           </div>
           <!-- 性别 -->
           <div class="sex">
@@ -96,19 +96,19 @@
           <!-- 微信号 -->
           <div class="wxNum">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">微信号码</font>
-            <input type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;" v-model="personal.wxNum">
+            <input type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;" v-model="tableData[0].wx_number">
           </div>
           <!-- 邮箱 -->
           <div class="email">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">邮箱</font>
-            <input placeholder="选填" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;" v-model="personal.email">
+            <input placeholder="选填" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;" v-model="tableData[0].email">
           </div>
         </div>
         
       <!-- 保存、取消按钮 -->
         <div class="btn1">
           <div class="quxiao" @click="tan1Open=false">取消</div>
-          <div class="baocun">保存</div>
+          <div class="baocun" @click='tan1Open=false' >保存</div>
         </div>
     </div>
     </div>
@@ -127,29 +127,29 @@
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">学历</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].education" placeholder="本科" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">学校名称</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].schoolName" placeholder="华南理工大学广州学院" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">专业</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].major" placeholder="软件工程" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">时间段</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].time_slot" placeholder="2017.09-2021.06" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">在校经历</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input placeholder="无" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
         </div>
         <!-- 保存、取消按钮 -->
         <div class="btn1">
           <div class="quxiao" @click="tan2Open=false">取消</div>
-          <div class="baocun">保存</div>
+          <div class="baocun" @click='tan2Open=false'>保存</div>
         </div>
       </div>
     </div>
@@ -168,21 +168,21 @@
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">工作城市</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].expectCity" placeholder="广州" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">期望职位</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].expectJob" placeholder="前端开发" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">期望薪酬</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].expectMoney" placeholder="10k" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
         </div>
         <!-- 保存、取消按钮 -->
         <div class="btn1">
           <div class="quxiao" @click="tan3Open=false">取消</div>
-          <div class="baocun">保存</div>
+          <div class="baocun" @click='tan3Open=false'>保存</div>
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@
             <font style="position:absolute;top:80rpx;left:20rpx;font-size:26rpx;color:gray;">简洁的写出自己的优势</font>
           </div>
           <div class="tx" style="height:550rpx;">
-            <textarea v-model="power.label" name="" id="" maxlength='200' autofocus style="width:90%;height:500rpx;position:absolute;left:20rpx;line-height:46rpx;"></textarea>
+            <textarea v-model="tableData[0].skill" name="" id="" maxlength='200' autofocus style="width:90%;height:500rpx;position:absolute;left:20rpx;line-height:46rpx;"></textarea>
             <!-- <input type="text" style="width:90%;height:70rpx;position:absolute;left:20rpx;"> -->
           </div>
           <!-- 字数限制 -->
@@ -213,7 +213,7 @@
         <!-- 保存、取消按钮 -->
         <div class="btn1">
           <div class="quxiao" @click="tan4Open=false">取消</div>
-          <div class="baocun">保存</div>
+          <div class="baocun" @click='tan4Open=false'>保存</div>
         </div>
       </div>
     </div>
@@ -227,33 +227,33 @@
         <div class="xinxi">
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">项目名称</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].project_name" placeholder="微招聘小程序" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">担任角色</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].project_role" placeholder="前端开发" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">时间段</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].project_time" placeholder="2020.12-2021.03" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx" style="height:400rpx;">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">项目内容</font>
-            <textarea name="" id="" maxlength='200' autofocus style="width:90%;height:350rpx;position:absolute;top:80rpx;left:20rpx;line-height:46rpx;"></textarea>
+            <textarea  v-model="tableData[0].project_content" placeholder="测试测试测试" name="" id="" maxlength='200' autofocus style="width:90%;height:350rpx;position:absolute;top:80rpx;left:20rpx;line-height:46rpx;"></textarea>
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">技术栈</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input placeholder="vue、mpvue、node" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">作品链接</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input placeholder="暂无" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
         </div>
         <!-- 保存、取消按钮 -->
         <div class="btn1">
           <div class="quxiao" @click="tan5Open=false">取消</div>
-          <div class="baocun">保存</div>
+          <div class="baocun" @click='tan5Open=false'>保存</div>
         </div>
       </div>
     </div>
@@ -267,25 +267,25 @@
         <div class="xinxi">
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">公司名称</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].work_conName" placeholder="龙玩互娱科技有限公司" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">担任职务</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].work_job" placeholder="前端开发实习生" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">时间段</font>
-            <input placeholder="后续需改成选择器" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
+            <input v-model="tableData[0].work_time" placeholder="2020.09-2020.12" type="text" style="width:90%;height:70rpx;position:absolute;top:80rpx;left:20rpx;border-bottom:1rpx solid gray;">
           </div>
           <div class="tx" style="height:400rpx;">
             <font style="position:absolute;top:20rpx;left:20rpx;font-size:36rpx;">工作内容</font>
-            <textarea name="" id="" maxlength='200' autofocus style="width:90%;height:350rpx;position:absolute;top:80rpx;left:20rpx;line-height:46rpx;"></textarea>
+            <textarea v-model="tableData[0].work_content" placeholder="测试测试测试" name="" id="" maxlength='200' autofocus style="width:90%;height:350rpx;position:absolute;top:80rpx;left:20rpx;line-height:46rpx;"></textarea>
           </div>
         </div>
         <!-- 保存、取消按钮 -->
         <div class="btn1">
           <div class="quxiao" @click="tan6Open=false">取消</div>
-          <div class="baocun">保存</div>
+          <div class="baocun" @click='tan6Open=false'>保存</div>
         </div>
       </div>
     </div>
@@ -322,11 +322,12 @@ export default {
       //个人信息数据
       personal:{name:'陈伟畅',sex:'男',age:'22',wxNum:'chen12354666',email:''},
       //教育经历数据
-      education:{school:'清华大学',grade:'本科'},
+      education:{school:'华南理工大学广州学院',grade:'本科'},
       //技能特长数据
       power:{label:"熟练使用HTML、CSS、JS进行页面布局。熟悉jquery，Vue框架技术。熟悉Element组件库开发。熟悉小程序开发，对响应式布局、移动端开发布局有一定了解。 了解bootstrap，弹性盒子布局，AJAX异步通信技术，ES6，能运用Git版本控制管理工具进行团队协作开发，了解svn，了解Webpack,具备良好的代码风格"},
       //求职期望数据
-      expect:{city:'广州',job:'web前端',money:'10000'}
+      expect:{city:'广州',job:'web前端',money:'10000'},
+      tableData:[]
     }
   },
 
@@ -335,7 +336,17 @@ export default {
   },
 
   methods: {
-    
+    getData(){
+      var that = this
+      this.$http.get("/user/getOne",{openid:JSON.stringify(wx.getStorageSync('openid'))}
+          ).then((res)=>{
+            //输出请求数据
+            //console.log(res.data)
+            that.tableData = res.data.data
+          }).catch(err=>{
+            console.log(err.status,err.message)
+          })
+    }
   },
 
   created () {
@@ -343,6 +354,7 @@ export default {
     //获取缓存中用户的授权信息
     this.wxUserinfo=wx.getStorageSync('userInformation')
     console.log(this.wxUserinfo)
+    this.getData()
   }
 }
 </script>

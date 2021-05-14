@@ -1,12 +1,17 @@
 {
   "pages": [
+    "pages/identity/main",
+    "pages/mianshi/main",
+    "pages/mytd/main",
     "pages/index/main",
+    "pages/mycol/main",
+    "pages/news/main",
+    "pages/bookDetails/main",
+    "pages/details/main",
     "pages/resume/main",
     "pages/mine/main",
     "pages/circle/main",
-    "pages/identity/main",
     "pages/logs/main",
-    "pages/news/main",
     "pages/counter/main"
   ],
   "window": {
@@ -31,12 +36,7 @@
       "pagePath": "pages/circle/main",
       "iconPath": "static/tabs/quan.png",
       "selectedIconPath": "static/tabs/quan-active.png"
-    }, {
-      "text": "消息",
-      "pagePath": "pages/news/main",
-      "iconPath": "static/tabs/news.png",
-      "selectedIconPath": "static/tabs/news-active.png"
-    }, {
+    },{
       "text": "个人中心",
       "pagePath": "pages/mine/main",
       "iconPath": "static/tabs/mine.png",
@@ -53,12 +53,7 @@
       "pagePath": "pages/circle/main",
       "icon": "static/tabs/quan.png",
       "activeIcon": "static/tabs/quan-active.png"
-    }, {
-      "name": "消息",
-      "pagePath": "pages/news/main",
-      "icon": "static/tabs/news.png",
-      "activeIcon": "static/tabs/news-active.png"
-    }, {
+    },{
       "name": "个人中心",
       "pagePath": "pages/mine/main",
       "icon": "static/tabs/mine.png",

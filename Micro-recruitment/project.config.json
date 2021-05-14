@@ -39,6 +39,7 @@
   "compileType": "miniprogram",
   "appid": "wx34aecf83d621a6b0",
   "projectname": "recruitment",
+  "libVersion": "2.16.1",
   "condition": {
     "search": {
       "list": []

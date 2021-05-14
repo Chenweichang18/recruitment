@@ -11,6 +11,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1",
-    "querystring": "^0.2.0"
+    "nodejs-websocket": "^1.7.2",
+    "querystring": "^0.2.0",
+    "tencentcloud-sdk-nodejs": "^4.0.95"
   }
 }

@@ -18,7 +18,8 @@ function Result ({ code = 200, msg = '接口请求成功', data = {} }) {
 
 // 在这里之前前端需要将登录微信小程序时给的code返回给后端，后端通过相同的/getopenid来接受code
 route.get('/getopenid',function (req, res){
-    console.log(req.query) //查看请求的body里面的内容
+    console.log('客户端调用了/login/getopenid接口！')
+    //console.log(req.query) //查看请求的body里面的内容
     //将请求地址的url后面的参数拼接起来
     var data = {
         'appid': appId,
@@ -26,7 +27,7 @@ route.get('/getopenid',function (req, res){
     	'js_code': req.query.code,
     	'grant_type': 'authorization_code'
     };
-    console.log(data);
+    //console.log(data);
     // querystring的stringify用于拼接查询
     var content = querystring.stringify(data);
     // 根据微信开发者文档给的API
@@ -38,19 +39,33 @@ route.get('/getopenid',function (req, res){
     // 将body的内容解析出来
     let abody = JSON.parse(body);
     // body里面包括openid和session_key
-    console.log(abody)
+    //console.log(abody)
+    //将openid插入数据库user表
+    db.query("SELECT * FROM user WHERE openid=?",[abody.openid],function(results,fields){
+        //如果openid不存在，插入数据库
+        //console.log(results)
+        if(results=='')
+        {
+            db.query("INSERT INTO user(openid) VALUES (?)",[abody.openid])
+            console.log('新用户注册openid成功！')
+        }
+        else
+        console.log('该openid已存在表中');
+    })
+    
     // 将请求的内容返回给前端
     res.json(abody)
+
   })
 }) 
 
 //get请求
-route.get('/get',(req,res)=>{
+/* route.get('/get',(req,res)=>{
     db.query("SELECT * FROM qqm",[],function(results,fields){
         res.status(200).json(new Result({data : results}))
         console.log('/login/get接口被调用');
 })
-});
+}); */
 
 //post请求
 route.post('/',(req,res)=>{

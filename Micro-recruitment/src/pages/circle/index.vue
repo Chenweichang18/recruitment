@@ -85,10 +85,10 @@
     <!-- 发布动态框 -->
     <div :class="boxOpen1?'textBox1 animated fadeInUp':'xiaoshi'">
       <div style="width:80%;border-bottom:2rpx solid gray;margin:10rpx auto;display:flex;justify-content:center;">动态</div>
-      <textarea name="" id="" cols="30" rows="10" style="border:2rpx solid gray;width:90%;margin:10rpx auto;"></textarea>
+      <textarea v-model="fabudongtai" name="" id="" cols="30" rows="10" style="border:2rpx solid gray;width:90%;margin:10rpx auto;"></textarea>
       <div style="margin:40rpx auto;width:320rpx;">
         <div style="display:flex;justify-content:center;align-items:center;float:left;background:gray;width:150rpx;height:70rpx;color:white;border-radius:20rpx;" @click="boxOpen1=false">取消</div>
-        <div style="display:flex;justify-content:center;align-items:center;float:right;background:#6495ED;width:150rpx;height:70rpx;color:white;border-radius:20rpx;">发布</div>
+        <div @click="fabule" style="display:flex;justify-content:center;align-items:center;float:right;background:#6495ED;width:150rpx;height:70rpx;color:white;border-radius:20rpx;">发布</div>
       </div>
       
     </div>
@@ -101,12 +101,13 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+      fabudongtai:'',
       swiperIndex: 1,
       swiperIndex2: 0,
       //请求海报测试数组
-      pic:[{'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F33500000%2FEmma-Watson-emma-watson-33575961-1920-1200.jpg&refer=http%3A%2F%2Fimages6.fanpop.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613460178&t=0c0f0e71782e6ca08f58b53ceaa75961'},
-           {'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.ivsky.com%2Fimg%2Fbizhi%2Fpre%2F201401%2F05%2Femma_watson-001.jpg&refer=http%3A%2F%2Fimg.ivsky.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613541770&t=2f397fc81ae3d06e0b2ccbff13955fa7'},
-           {'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F9%2F58ec9b08ec2f1.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613460178&t=3642669eba443e8daee370f1be1aa950'}],
+      pic:[{'url':'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1500171548,4027027265&fm=26&gp=0.jpg'},
+           {'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fatt3.citysbs.com%2Fm320x%2Fhangzhou%2F2012%2F10%2F25%2F11%2F110819_12101351134499680_453c2d33af5f30c11959416dbfba8072.jpg&refer=http%3A%2F%2Fatt3.citysbs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618161243&t=b448f6f0357eda7e7785b0187965c323'},
+           {'url':'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi2.img.969g.com%2Ffs%2Fimgx2011%2F09%2F13%2F114_092450_ccdd2.jpg&refer=http%3A%2F%2Fi2.img.969g.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618161291&t=b24dfd4c5b8d694f443b5b161a8a4b31'}],
       //动态的三个状态控制
       open1:true,
       open2:false,
@@ -117,14 +118,14 @@ export default {
       boxOpen1:false,
       boxOpen2:false,
       listNum:[],
-      dongtai:[{user:'黎明',text:'今天面试官把我批了一顿!',zanType:false,caiType:false},
-               {user:'刘德华',text:'今天面试官把我批了一顿!',zanType:false,caiType:false},
-               {user:'张学友',text:'今天面试官把我批了一顿!',zanType:false,caiType:false},
-               {user:'郭富城',text:'今天面试官把我批了一顿!',zanType:false,caiType:false}],
-      mianjing:[{user:'黎明',text:'面试官老是问我http机制，你们记得复习!'},
-               {user:'刘德华',text:'面试官老是问我http机制，你们记得复习!'},
-               {user:'张学友',text:'面试官老是问我http机制，你们记得复习!'},
-               {user:'郭富城',text:'面试官老是问我http机制，你们记得复习!'}],
+      dongtai:[{user:'小明',text:'今天没复习，好多都忘了，感觉好丢人！！!',zanType:false,caiType:false},
+               {user:'小东',text:'今天没复习，好多都忘了，感觉好丢人！！!',zanType:false,caiType:false},
+               {user:'小红',text:'今天没复习，好多都忘了，感觉好丢人！！!',zanType:false,caiType:false},
+               {user:'小郭',text:'今天没复习，好多都忘了，感觉好丢人！！!',zanType:false,caiType:false}],
+      mianjing:[{user:'小芳',text:'面试官老是问我http机制，你们记得复习!'},
+               {user:'小西',text:'面试官老是问我http机制，你们记得复习!'},
+               {user:'小政',text:'面试官老是问我http机制，你们记得复习!'},
+               {user:'小福',text:'面试官老是问我http机制，你们记得复习!'}],
       timu:   [{text:'实现居中的方法有flex布局！',get:false},
                {text:'实现居中的方法有flex布局！',get:false},
                {text:'实现居中的方法有flex布局！',get:false},
@@ -138,6 +139,53 @@ export default {
   },
 
   methods: {
+    getDT(){
+      var that = this
+      this.$http.get("/user/getAlldt"
+          ).then((res)=>{
+            //输出请求数据
+            //console.log(res.data)
+            that.dongtai = res.data.data
+            that.listNum=that.dongtai
+          }).catch(err=>{
+            console.log(err.status,err.message)
+          })
+    },
+    getMJ(){
+      var that = this
+      this.$http.get("/user/getAllmj"
+          ).then((res)=>{
+            //输出请求数据
+            //console.log(res.data)
+            that.mianjing = res.data.data
+          }).catch(err=>{
+            console.log(err.status,err.message)
+          })
+    },
+    getTM(){
+      var that = this
+      this.$http.get("/user/getAlltm"
+          ).then((res)=>{
+            //输出请求数据
+            //console.log(res.data)
+            that.timu = res.data.data
+          }).catch(err=>{
+            console.log(err.status,err.message)
+          })
+    },
+    fabule(){
+      var that =this;
+      this.$http.post("/user/fabudt",{user:'Chen',text:this.fabudongtai}
+          ).then((res)=>{
+            //输出请求数据
+            //console.log(res.data)
+            that.dongtai.push({user:'Chen',text:this.fabudongtai,zanType:false,caiType:false})
+            that.boxOpen1=false;
+          }).catch(err=>{
+            console.log(err.status,err.message)
+          })
+    },
+      
     //卡片式轮播图组件方法：获取当前轮播图下标
     bindchange(e) {
       this.swiperIndex=e.mp.detail.current
@@ -190,7 +238,9 @@ export default {
 
   created () {
     // let app = getApp()
-    this.listNum=this.dongtai
+    this.getDT()
+    this.getMJ()
+    this.getTM()
   }
 }
 </script>

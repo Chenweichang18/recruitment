@@ -1,6 +1,6 @@
 <template>
   <div @click="clickHandle">
-    消息
+    即时通讯
   </div>
 </template>
 
@@ -10,6 +10,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
+     
     }
   },
 
@@ -22,10 +23,15 @@ export default {
   },
 
   created () {
-    // let app = getApp()
+    
   }
 }
 </script>
 
+<style>
+page{
+  background: rgba(185, 184, 184, 0.068);
+}
+</style>
 <style scoped>
 </style>
